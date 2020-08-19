@@ -1,0 +1,501 @@
+@charset "utf-8";
+
+/* 등분할 사이트 CSS - main.css */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    font-family: Helvetica, Arial, "sans-serif";
+    background-color: #FC0;/*첫번째 메뉴배경색으로!이유는?*/
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul::after,
+ol::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+li {
+    float: left;
+}
+
+.bld {
+    display: none;
+    /*IR*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    /*html기본크기*/
+}
+
+/*사이트 개별 디자인*/
+
+/*탑영역*/
+#top{
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    color: #fff;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+#top>h2{/*큰타이틀*/
+    width: 100%;
+    margin-top: 20px;
+    font-size: 15px;
+}
+#top>h3{/*작은타이틀*/
+    width: 100%;
+    font-size: 12px;
+}
+/*햄버거버튼*/
+#ham{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    font: 42px/70px Verdana;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+/******* GNB 메뉴 *********/
+#gnb{
+    position: absolute;
+    top: 0;
+    left: -300px;/*움직일값*/
+    width: 300px;
+    height: 100%;
+    z-index: 999999;/*가장위!*/
+/*    outline: 1px solid red;*/
+}
+#gnb>li{
+    position: relative;/*부모자격*/
+    width: 100%;
+    height: 15%;/*대부분의(5개)높이비율*/
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: Verdana;
+    color: #fff;
+}
+/*li높이값 개별조정*/
+#gnb>li:nth-child(1),
+#gnb>li:nth-child(7){
+    height: 7.5%;
+}
+#gnb>li:nth-child(8){
+    height: 10%;
+}
+
+/*a링크 디자인*/
+#gnb>li>a{
+    position: relative;
+    left: -100%;/*메뉴박스왼쪽바깥으로 내보냄*/
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #fff;
+}
+/*메뉴글자 세로중앙*/
+#gnb>li>a>span{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);/*세로중앙이동*/
+}
+
+/*메뉴배경색 class*/
+.mbg0{/*HOMEPAGE*/
+    cursor: default;
+    /*손가락표시없앰,배경색은 없음*/
+}
+.mbg1{
+    background-color: #656565;
+}
+.mbg2{
+    background-color: #545454;
+}
+.mbg3{
+    background-color: #494949;
+}
+.mbg4{
+    background-color: #3C3C3C;
+}
+.mbg5{
+    background-color: #2C2C2C;
+}
+.mbg6{
+    background-color: #333333;
+}
+
+
+/*사이트커버*/
+#scover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0;/*오프닝후 0.2로 셋팅필요!*/    
+    z-index: 99999;/*탑영역보다위,메뉴보다아래*/
+}
+
+
+
+#wrap,
+#wrap > ul {
+    position: relative;/*위치이동위해*/
+    width: 100%;
+    height: 100%;
+    background-color: #F63;
+}
+
+#wrap > ul{
+    width: 500%;/*하나의 li를 화면에 꽉차게 늘림*/
+}
+
+#wrap > ul > li {
+    width: 20%;
+    height: 100%;
+}
+
+/*크롬*/
+#wrap > ul > li:nth-child(1) {
+    background-color: #FC0;
+}
+
+/*크롬오버시*/
+#wrap > ul > li:nth-child(1):hover {
+    background-image: radial-gradient(circle, #FBE282, #FBE282 20%, #FC0 100%);
+}
+
+/*파폭*/
+#wrap > ul > li:nth-child(2) {
+    background-color: #F90;
+}
+
+/*파폭오버시*/
+#wrap > ul > li:nth-child(2):hover {
+    background-image: radial-gradient(circle, #FBC26E, #FBC26E 20%, #F90 100%);
+}
+
+/*익스*/
+#wrap > ul > li:nth-child(3) {
+    background-color: #0CF;
+}
+
+/*익스오버시*/
+#wrap > ul > li:nth-child(3):hover {
+    background-image: radial-gradient(circle, #67DEFC, #67DEFC 20%, #0CF 100%);
+}
+
+/*사파리*/
+#wrap > ul > li:nth-child(4) {
+    background-color: #06F;
+}
+
+/*사파리오버시*/
+#wrap > ul > li:nth-child(4):hover {
+    background-image: radial-gradient(circle, #5B99F7, #5B99F7 20%, #06F 100%);
+}
+
+/*오페라*/
+#wrap > ul > li:nth-child(5) {
+    background-color: #F63;
+    position: absolute;
+    /*가로크기변경 애니시 떨어짐현상 때문에 마지막 li를 absolute로 오른쪽 끝에 고정한다.*/
+    right: 0;
+}
+
+/*오페라오버시*/
+#wrap > ul > li:nth-child(5):hover {
+    background-image: radial-gradient(circle, #F89979, #F89979 20%, #F63 100%);
+}
+
+/******* 컨텐츠 박스 ********/
+.cbox {
+    position: relative;
+    top: 15%;
+    width: 270px;
+    height: 85%;
+    margin: 0 auto;
+    /*    outline: 1px solid red;*/
+}
+
+.cbox > li {
+    width: 100%;
+    /*한줄에 하나!*/
+    box-sizing: border-box;
+    /*크기유지*/
+    text-align: center;
+    color: #fff;
+}
+
+/*점유율*/
+.cbox > li:nth-child(1) {
+    height: 25%;
+    opacity: 0;
+    /*안보임*/
+    transition: opacity .2s;
+}
+
+/*상위li에 마우스 오버시 점유율 보이기*/
+#wrap > ul > li:hover .cbox > li:nth-child(1) {
+    opacity: 1;
+}
+
+/*점유율텍스트*/
+.cbox > li:nth-child(1) h2 {
+    font-size: 58px;
+    font-weight: bold;
+}
+
+/*점유율안내*/
+.cbox > li:nth-child(1) h4 {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/*로고박스*/
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    background: url(../images/OB/browsers-bg.png) no-repeat 0 0/auto 200px;
+}
+
+/*크롬로고*/
+#wrap > ul > li:nth-child(1) .google {
+    background-position: 0 0;
+}
+
+/*크롬로고 마우스오버시*/
+#wrap > ul > li:nth-child(1):hover .google {
+    background-position: 0 -100px;
+}
+
+/*파폭로고*/
+#wrap > ul > li:nth-child(2) .firefox {
+    background-position: -100px 0;
+}
+
+/*파폭로고 마우스오버시*/
+#wrap > ul > li:nth-child(2):hover .firefox {
+    background-position: -100px -100px;
+}
+
+/*익스로고*/
+#wrap > ul > li:nth-child(3) .ie {
+    background-position: -200px 0;
+}
+
+/*익스로고 마우스오버시*/
+#wrap > ul > li:nth-child(3):hover .ie {
+    background-position: -200px -100px;
+}
+
+/*사파리로고*/
+#wrap > ul > li:nth-child(4) .safari {
+    background-position: -300px 0;
+}
+
+/*사파리로고 마우스오버시*/
+#wrap > ul > li:nth-child(4):hover .safari {
+    background-position: -300px -100px;
+}
+
+/*오페라로고*/
+#wrap > ul > li:nth-child(5) .opera {
+    background-position: -400px 0;
+}
+
+/*오페라로고 마우스오버시*/
+#wrap > ul > li:nth-child(5):hover .opera {
+    background-position: -400px -100px;
+}
+
+
+
+
+/*로고타이틀*/
+.cbox > li:nth-child(2) > h4 {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+/*다운로드버튼영역*/
+.cbox > li:nth-child(3) {
+    height: 30%;
+    opacity: 0;
+    /*안보임*/
+    transition: opacity .2s;
+}
+
+/*상위li에 마우스 오버시 다운로드버튼영역 보이기*/
+#wrap > ul > li:hover .cbox > li:nth-child(3) {
+    opacity: 1;
+}
+
+
+
+.btndown {
+    width: 210px;
+    height: 57px;
+    border: 3px solid #fff;
+    border-radius: 30px;
+    color: #fff;
+    font: bold 15px/15px Verdana;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .3s;
+    margin-top: 60px;
+}
+
+/*버튼에 마우스오버시*/
+.btndown:hover {
+    background-color: #fff;
+}
+
+.btnC:hover {
+    /*크롬*/
+    color: #FC0;
+}
+
+.btnF:hover {
+    /*파폭*/
+    color: #F90;
+}
+
+.btnE:hover {
+    /*익스*/
+    color: #0CF;
+}
+
+.btnS:hover {
+    /*사파리*/
+    color: #06F;
+}
+
+.btnO:hover {
+    /*오페라*/
+    color: #F63;
+}
+
+
+
+
+/*다운로드버전타이틀*/
+.cbox > li:nth-child(3) > h5 {
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 30px;
+}
+
+/*익스용 추가문구*/
+#wrap > ul > li:nth-child(3) .cbox > li:nth-child(3) > h6 {
+    font-size: 9px;
+    font-weight: 900;
+    line-height: 10px;
+    color: #a3ecff;
+}
+
+
+
+/*가용시스템 이미지박스*/
+.cbox > li:last-child {
+    height: 10%;
+}
+
+/*타이틀*/
+.cbox > li:last-child > h5 {
+    font-size: 10px;
+    font-weight: 900;
+    margin-top: 80px;
+}
+
+/*가용시스템 이미지박스*/
+.cbox > li:last-child > ul {
+    margin: 10px auto;
+    width: 135px;
+}
+
+.cbox > li:last-child > ul > li {
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+    background: url(../images/OB/operatingsystems-bg.png) no-repeat;
+    background-size: auto 25px;
+}
+
+/*맥os*/
+.cbox > li:last-child > ul > li:nth-child(2) {
+    background-position: -25px 0;
+}
+
+/*리눅스*/
+.cbox > li:last-child > ul > li:nth-child(3) {
+    background-position: -50px 0;
+}
+
+
+/*익스는 가용시스템 중 첫번째만 보임(2,3번 숨기기)*/
+#wrap > ul > li:nth-child(3) .cbox > li:last-child > ul{
+    width: 25px;
+}
+#wrap > ul > li:nth-child(3) .cbox > li:last-child > ul > li{
+    margin: 0;
+}
+#wrap > ul > li:nth-child(3) .cbox > li:last-child > ul > li:nth-child(2),
+#wrap > ul > li:nth-child(3) .cbox > li:last-child > ul > li:nth-child(3) {
+    display: none;
+}
+
+
+/*사파리는 가용시스템 중 첫번째만 보임(1,3번 숨기기)*/
+#wrap > ul > li:nth-child(4) .cbox > li:last-child > ul{
+    width: 25px;
+}
+#wrap > ul > li:nth-child(4) .cbox > li:last-child > ul > li{
+    margin: 0;
+}
+#wrap > ul > li:nth-child(4) .cbox > li:last-child > ul > li:nth-child(1),
+#wrap > ul > li:nth-child(4) .cbox > li:last-child > ul > li:nth-child(3) {
+    display: none;
+}
+
+
+
+
+
+
+
+
